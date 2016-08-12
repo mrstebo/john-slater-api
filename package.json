@@ -2,7 +2,7 @@
   "name": "john-slater-api",
   "version": "1.0.0",
   "description": "The John Slater API",
-  "main": "dist/index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node ./app.js"
   },
