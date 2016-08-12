@@ -1,8 +1,7 @@
-import core from 'babel-core/register';
-import polyfill from 'babel-polyfill';
-import koa from 'koa';
-import router from 'koa-route';
+const koa = require('koa');
+const router = require('koa-route');
 
+const PORT = process.env.PORT || 3000;
 const app = koa();
 
 app.use(router.get('/make-some-noise', function *() {
@@ -28,5 +27,5 @@ app.use(router.get('/', function *() {
   this.body = `{ routes: ['/portfolio', '/uifw-bug-report', '/make-some-noise'], avatar: 'https://ekmpowershop.slack.com/files/nickelse/F1QVBRX0C/john2.jpg' }`;
 }));
 
-app.listen(5500);
-console.log('Listening on port 5500');
+app.listen(PORT);
+console.log(`Listening on port ${PORT}`);
