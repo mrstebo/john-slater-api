@@ -1,16 +1,19 @@
 const koa = require('koa');
 const router = require('koa-route');
+const req = require('co-request');
 const _ = require('lodash');
 
 const PORT = process.env.PORT || 3000;
 const app = koa();
 
 app.use(router.get('/make-some-noise', function *() {
-  this.body = 'https://www.youtube.com/watch?v=BvaDnaa4ztc';
+  let result = yield req('https://www.youtube.com/watch?v=BvaDnaa4ztc');
+  this.body = result.body;
 }));
 
 app.use(router.get('/portfolio', function *() {
-  this.body = 'https://www.youtube.com/watch?v=m4OvQIGDg4I';
+  let result = yield req('https://www.youtube.com/watch?v=m4OvQIGDg4I');
+  this.body = result.body;
 }));
 
 app.use(router.get('/uifw-bug-report', function *() {
