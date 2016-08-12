@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/mrstebo/john-slater-api#readme",
   "engines": {
-    "node": ">=4.0.0 <6.3.0"
+    "node": "6.3.0"
   },
   "dependencies": {
     "koa": "^1.2.1",
