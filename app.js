@@ -1,5 +1,6 @@
 const koa = require('koa');
 const router = require('koa-route');
+const _ = require('lodash');
 
 const PORT = process.env.PORT || 3000;
 const app = koa();
@@ -19,12 +20,21 @@ app.use(router.get('/uifw-bug-report', function *() {
     `Is there a kanbug for it?`,
     `Is there a trello card for it?`
   ];
-  let responsesLen = responses.length;
-  this.body = responses[Math.floor(Math.random() * responsesLen)];
+  this.body = {
+    response: _.sample(responses)
+  }
 }));
 
 app.use(router.get('/', function *() {
-  this.body = `{ routes: ['/portfolio', '/uifw-bug-report', '/make-some-noise'], avatar: 'https://ekmpowershop.slack.com/files/nickelse/F1QVBRX0C/john2.jpg' }`;
+  this.body = {
+    links: [
+      { rel: "self", href: "/" },
+      { rel: "Portfolio", href: "/portfolio" },
+      { rel: "UIFW Bug Report", href: "/uifw-bug-report" },
+      { rel: "Make Some Noise", href: "/make-some-noise" },
+    ],
+    avatar: 'https://ekmpowershop.slack.com/files/nickelse/F1QVBRX0C/john2.jpg'
+  };
 }));
 
 app.listen(PORT);
