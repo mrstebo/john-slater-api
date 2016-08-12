@@ -1,8 +1,7 @@
-import core from 'babel-core/register';
-import polyfill from 'babel-polyfill';
-import koa from 'koa';
-import router from 'koa-route';
+const koa = require('koa');
+const router = require('koa-route');
 
+const PORT = process.env.PORT || 3000;
 const app = koa();
 
 app.use(router.get('/uifw-bug-report', function *() {
@@ -16,5 +15,5 @@ app.use(router.get('/uifw-bug-report', function *() {
   this.body = responses[Math.floor(Math.random() * responsesLen)];
 }));
 
-app.listen(5500);
-console.log('Listening on port 5500');
+app.listen(PORT);
+console.log(`Listening on port ${PORT}`);
