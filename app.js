@@ -74,7 +74,8 @@ app.use(router.get('/uifw-bug-report', function *() {
     `I'll add it to my list`,
     `Are you using the latest version?`,
     `Is there a kanbug for it?`,
-    `Is there a trello card for it?`
+    `Is there a trello card for it?`,
+    `Does it work in the uifw docs?`
   ];
   this.body = {
     response: _.sample(responses)
