@@ -75,7 +75,9 @@ app.use(router.get('/uifw-bug-report', function *() {
     `Are you using the latest version?`,
     `Is there a kanbug for it?`,
     `Is there a trello card for it?`,
-    `Does it work in the uifw docs?`
+    `Does it work in the uifw docs?`,
+    `If you find an issue with something that’s been in the UIFW for a long time then it’s most likely an issue with the developer not the UIFW.`,
+    `If it works in the documentation or the examples for the UIFW then it works.`
   ];
   this.body = {
     response: _.sample(responses)
